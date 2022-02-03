@@ -1,0 +1,21 @@
+#jstimer{
+    text-align: center;
+}
+
+h5{
+	font-weight: normal;
+
+}
+
+
+
+#clockdiv{
+	background-color: darkolivegreen;
+  	color: white;
+  	display: inline-block;
+  	max-width: 12rem;
+  	font-size: 10pt;
+  	padding:0.5rem 1rem;
+
+}
+

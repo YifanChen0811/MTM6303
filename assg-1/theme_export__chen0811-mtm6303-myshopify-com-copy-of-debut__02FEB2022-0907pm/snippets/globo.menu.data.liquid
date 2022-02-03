@@ -1,0 +1,17 @@
+{%- assign primary_locale = 'null' -%}
+{%- for locale in shop.published_locales -%}{%- if locale.primary -%}{%- assign primary_locale = locale.iso_code | json -%}{%- endif -%}{%- endfor -%}
+<script type="text/javascript">
+  window.GloboMenuConfig = window.GloboMenuConfig || {}
+  window.GloboMenuConfig.hasCarousel = {% if items contains 'carousel' %}true{% else %}false{% endif %};
+  window.GloboMenuConfig.products = window.GloboMenuConfig.products || {};
+  window.GloboMenuConfig.collections = window.GloboMenuConfig.collections || {};
+  window.GloboMenuConfig.pages = window.GloboMenuConfig.pages || {};
+  window.GloboMenuConfig.curLocale = {{request.locale.iso_code | json}};
+  window.GloboMenuConfig.GloboMenuLocale = {{request.locale.iso_code | json}};
+  window.GloboMenuConfig.locale = {{primary_locale}};
+  window.GloboMenuConfig.isMultiCurrency  = false;
+  window.GloboMenuConfig.GloboMenuMissingProducts = [];
+  {%- capture product -%}{{-all_products['fabric-chair-black-white'] | json-}}{%- endcapture -%}{%- if product contains 'Liquid error' -%}window.GloboMenuConfig.GloboMenuMissingProducts.push('fabric-chair-black-white');{%- else -%}window.GloboMenuConfig.products['fabric-chair-black-white'] = {{-product-}};{%- endif -%}
+{%- capture product -%}{{-all_products['out-door-chair'] | json-}}{%- endcapture -%}{%- if product contains 'Liquid error' -%}window.GloboMenuConfig.GloboMenuMissingProducts.push('out-door-chair');{%- else -%}window.GloboMenuConfig.products['out-door-chair'] = {{-product-}};{%- endif -%}
+{%- capture product -%}{{-all_products['beige-eiffel-office-chair'] | json-}}{%- endcapture -%}{%- if product contains 'Liquid error' -%}window.GloboMenuConfig.GloboMenuMissingProducts.push('beige-eiffel-office-chair');{%- else -%}window.GloboMenuConfig.products['beige-eiffel-office-chair'] = {{-product-}};{%- endif -%}
+</script>
