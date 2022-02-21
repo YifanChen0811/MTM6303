@@ -1,0 +1,74 @@
+<div class="card-group">
+  {% for block in section.blocks %}
+  {% case block.type %}
+    {% when 'block' %}
+      <div class="card" style="width: 18rem;">
+  			<img class="card-img-top" src="{{ block.settings.card_image | image_url: width: 500 }}" alt="{{block.settings.card_image.alt}}">
+  			<div class="card-body">
+    			<h5 class="card-title">{{block.settings.card_title}}</h5>
+    			<p class="card-text">{{block.settings.card_text}}</p>
+   				<a href="{{block.settings.button_link}}" class="btn btn-primary" style="background-color : {{ block.settings.btn-color}};">{{block.settings.button_text}}</a>
+  			</div>
+ 	  </div>
+  {% endcase %}
+{% endfor %}
+</div>>
+
+ 
+{% schema %}
+{
+	"name": "Bootstrap Card",
+    "tag": "section",
+	"max_blocks": 3,
+    "blocks": [{
+	"name": "Block",
+	"type": "block",
+	"settings":[        {
+          "type": "image_picker",
+          "id": "card_image",
+          "label": "Card Image"
+        },
+
+        {
+          "type": "color",
+          "id": "btn-color",
+          "label": "Button Color",
+          "default": "#00296B"
+        },
+
+		{
+  		  "type": "text",
+  	  	  "id": "card_title",
+  		  "label": "Title",
+  		  "default": "Card title"
+		},
+
+		{
+  		  "type": "text",
+  	  	  "id": "card_text",
+  		  "label": "Message",
+  		  "default": "Some quick example text to build on the card title and make up the bulk of the card's content."
+		},
+
+		{
+          "type": "url",
+  		  "id": "button_link",
+  		  "label": "Button link"
+		},
+		{
+  		  "type": "text",
+  	  	  "id": "button_text",
+  		  "label": "Button Text",
+  		  "default": "GO ANYWHERE"
+		}
+]}
+
+]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
