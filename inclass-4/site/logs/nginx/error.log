@@ -1,1 +1,0 @@
-2022/02/23 02:58:48 [error] 24596#0: *9 directory index of "/Users/chenyifan/Documents/homework/MTM6303/inclass-4/app/public/" is forbidden, client: 127.0.0.1, server: , request: "GET / HTTP/1.0", host: "inclass4.local"
